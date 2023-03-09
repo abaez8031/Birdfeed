@@ -19,11 +19,11 @@ class Stage {
     this.ctx.clearRect(0, 0, 1000, 500);
     this.ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
+    feeder.draw();
     this.birds.forEach((bird) => {
       bird.update();
       bird.draw();
     });
-    feeder.draw();
     requestAnimationFrame(this.animate);
   }
 }
