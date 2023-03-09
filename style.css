@@ -1,4 +1,4 @@
-/* #canvas {
+#canvas {
   width: 1000px;
   height: 500px;
   border: 1px solid black;
@@ -7,4 +7,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: url("/images/1527735.png"), default;
-} */
+}
