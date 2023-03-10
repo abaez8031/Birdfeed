@@ -2,24 +2,25 @@ class Bird {
   constructor(ctx) {
     this.width = 35;
     this.height = 35;
-    this.x = canvas.width;
+    this.x = 0;
     this.y = Math.random() * (canvas.height - this.height);
-    this.directionX = Math.random() * 5 + 2;
-    this.directionY = Math.random() * 5 - 1;
+    this.speed = Math.random() * 5 + 2;
     this.ctx = ctx;
     this.image = new Image();
     this.image.src = "/images/My project.png";
+    this.frame = 3;
+    setInterval(this.updateFrame.bind(this), 75);
   }
 
   update() {
-    this.x -= this.directionX;
+    this.x += this.speed;
   }
 
   draw() {
     // ctx.fillRect(this.x, this.y, this.width, this.height);
     this.ctx.drawImage(
       this.image,
-      0,
+      this.frame * 37,
       0,
       this.width,
       this.height,
@@ -28,6 +29,14 @@ class Bird {
       this.width,
       this.height
     );
+  }
+
+  updateFrame() {
+    if (this.frame > 6) {
+      this.frame = 3;
+    } else {
+      this.frame++;
+    }
   }
 }
 

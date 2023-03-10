@@ -9,6 +9,7 @@ class Stage {
     this.worms = [];
     this.animate = this.animate.bind(this);
     this.animate();
+
     setInterval(() => {
       this.birds.push(new Bird(this.ctx));
     }, 1000);
