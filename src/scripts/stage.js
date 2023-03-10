@@ -18,7 +18,7 @@ class Stage {
   animate() {
     const background = new Image();
     const feeder = new Feeder(this.ctx);
-    background.src = "/images/stage.png";
+    background.src = "./images/stage.png";
     this.ctx.clearRect(0, 0, 1000, 500);
     this.ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
