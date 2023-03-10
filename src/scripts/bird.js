@@ -9,7 +9,7 @@ class Bird {
     this.image = new Image();
     this.image.src = "/images/My project.png";
     this.frame = 3;
-    setInterval(this.updateFrame.bind(this), 75);
+    setInterval(this.updateFrame.bind(this), 100);
   }
 
   update() {
