@@ -34,6 +34,25 @@ class Game {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     this.stage.worms.push(new Worm(this.ctx, x, y));
+    this.stage.worms.forEach((worm) => this.checkWormShot(worm));
+  }
+
+  checkWormShot(worm) {
+    this.stage.birds.forEach((bird) => {
+      if (
+        worm.x < bird.x + bird.width &&
+        worm.x + worm.width > bird.x &&
+        worm.y < bird.y + bird.height &&
+        worm.y + worm.height > bird.y
+      ) {
+        // Collision detected!
+        console.log("HIT");
+      }
+    });
+  }
+
+  addPoint() {
+    this.score++;
   }
 }
 
