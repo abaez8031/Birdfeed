@@ -58,6 +58,6 @@ class Game {
   }
 }
 
-const newGame = new Game();
+new Game();
 
 export default Game;
