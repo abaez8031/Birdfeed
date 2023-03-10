@@ -51,7 +51,9 @@ class Game {
     this.score++;
   }
 
-  
+  // renderScore() {
+  //   this.ctx.fillText(`SCORE: ${this.score} TIME: ${this.timeRemaining}`);
+  // }
 }
 
 new Game();
