@@ -14,6 +14,8 @@ class Game {
     this.timeRemaining = 60;
     this.score = 0;
     canvas.addEventListener("click", this.handleClick.bind(this));
+    setInterval(this.renderScore.bind(this), 0);
+    // this.countdown.bind(this)();
     // this.addTimer.bind(this)();
   }
 
@@ -35,6 +37,9 @@ class Game {
     const y = e.clientY - rect.top;
     this.stage.worms.push(new Worm(this.ctx, x, y));
     this.stage.worms.forEach((worm) => this.checkWormShot(worm));
+    setTimeout(() => {
+      this.stage.worms = [];
+    }, 300);
   }
 
   checkWormShot(worm) {
@@ -47,7 +52,9 @@ class Game {
       ) {
         // Collision detected!
         console.log("HIT");
-        this.addPoint();
+        const index = this.stage.birds.indexOf(bird);
+        this.stage.birds.splice(index, 1);
+        this.addPoint.bind(this)();
       }
     });
   }
@@ -55,7 +62,13 @@ class Game {
   addPoint() {
     this.score++;
   }
+
+  renderScore() {
+    const scoreboard = document.getElementById("scoreboard");
+    scoreboard.innerText = `SCORE: ${this.score}`;
+  }
 }
 
-new Game();
+const newGame = new Game();
+
 export default Game;

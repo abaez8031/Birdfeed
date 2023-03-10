@@ -8,3 +8,9 @@
   transform: translate(-50%, -50%);
   cursor: url("/images/1527735.png"), default;
 }
+
+#scoreboard {
+  text-align: center;
+  border: 1px solid black;
+  font-size: 25px;
+}
