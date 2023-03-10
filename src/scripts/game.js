@@ -47,6 +47,7 @@ class Game {
       ) {
         // Collision detected!
         console.log("HIT");
+        this.addPoint();
       }
     });
   }
