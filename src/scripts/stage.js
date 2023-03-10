@@ -26,7 +26,6 @@ class Stage {
       bird.update();
       bird.draw();
     });
-
     this.worms.forEach((worm) => {
       worm.draw();
     });

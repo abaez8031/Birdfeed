@@ -15,21 +15,10 @@ class Game {
     this.score = 0;
     canvas.addEventListener("click", this.handleClick.bind(this));
     setInterval(this.renderScore.bind(this), 0);
-    // this.countdown.bind(this)();
-    // this.addTimer.bind(this)();
+    setInterval(() => {
+      this.timeRemaining--;
+    }, 1000);
   }
-
-  // countdown() {
-  //   while (this.timeRemaining >= 0) {
-  //     setInterval(() => {
-  //       this.timeRemaining--;
-  //     }, 1000);
-  //   }
-  // }
-
-  // addTimer() {
-  //   this.ctx.fillText(`Time: ${this.timeRemaining}`, 50, 50);
-  // }
 
   handleClick(e) {
     const rect = canvas.getBoundingClientRect();
@@ -65,7 +54,7 @@ class Game {
 
   renderScore() {
     const scoreboard = document.getElementById("scoreboard");
-    scoreboard.innerText = `SCORE: ${this.score}`;
+    scoreboard.innerText = `BIRDS FED: ${this.score} TIME REMAINING: ${this.timeRemaining}`;
   }
 }
 

@@ -7,7 +7,7 @@ class Feeder {
     this.x = 475;
     this.y = 430;
     this.image = new Image();
-    this.image.src = "/images/Arcade - Blood Bros - Player 1.png";
+    this.image.src = "/images/172971-PhotoRoom.png";
     this.ctx = ctx;
   }
 

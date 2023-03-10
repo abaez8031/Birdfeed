@@ -8,7 +8,7 @@ class Bird {
     this.directionY = Math.random() * 5 - 1;
     this.ctx = ctx;
     this.image = new Image();
-    this.image.src = "/images/NES - Duck Hunt - Ducks.png";
+    this.image.src = "/images/My project.png";
   }
 
   update() {
