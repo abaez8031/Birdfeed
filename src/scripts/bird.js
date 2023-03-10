@@ -4,8 +4,8 @@ class Bird {
     this.height = 35;
     this.x = canvas.width;
     this.y = Math.random() * (canvas.height - this.height);
-    this.directionX = Math.random() * 4;
-    this.directionY = Math.random() * 5;
+    this.directionX = Math.random() * 5 + 2;
+    this.directionY = Math.random() * 5 - 1;
     this.ctx = ctx;
     this.image = new Image();
     this.image.src = "/images/NES - Duck Hunt - Ducks.png";
