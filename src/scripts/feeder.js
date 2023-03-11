@@ -19,14 +19,14 @@ class Feeder {
     this.x = 475;
     this.y = 430;
     this.image = new Image();
-    this.image.src = "/images/172971-PhotoRoom.png";
+    this.image.src = "/images/172970-PhotoRoom.png";
     this.ctx = ctx;
   }
 
   draw() {
     this.ctx.drawImage(
       this.image,
-      frame * 50,
+      frame * 52.5 - 2.5,
       30,
       this.width,
       this.height,
