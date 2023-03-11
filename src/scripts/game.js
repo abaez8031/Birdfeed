@@ -16,12 +16,15 @@ class Game {
     this.playing = true;
     canvas.addEventListener("click", this.handleClick.bind(this));
     setInterval(this.renderScore.bind(this), 0);
+    
     const timer = setInterval(() => {
       this.timeRemaining--;
       if (this.timeRemaining <= 0) {
+        clearInterval(timer)
         this.endGame()
       }
     }, 1000);
+
   }
 
   handleClick(e) {
@@ -70,9 +73,9 @@ class Game {
 
   endGame() {
     this.playing = false;
-    clearInterval(this.timer);
+    alert(`GAME OVER! Your score is ${this.score}`);
   }
-  
+
 }
 
 new Game();
