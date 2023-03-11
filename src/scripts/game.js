@@ -107,11 +107,10 @@ class Game {
 }
 
 if(!game) {
-const background = new Image();
-background.src = "./images/1200593Blackbird, Paul's garden2B New Zealand Birds Website.jpg"
-ctx.drawImage(background, 0,0, 1000, 500)
+ctx.fillStyle = "aliceblue"
+ctx.fillRect(0,0,canvas.width, canvas.height)
 ctx.font = "20px Helvetica";
-ctx.fillStyle = "red";
+ctx.fillStyle = "pink";
 ctx.fillText("The objective of this game is to feed the flying birds", 10, 60);
 ctx.fillText("1. Use your mouse to aim your worm gun at the birds flying overhead", 10, 120);
 ctx.fillText("2. You have 60 seconds to feed as many birds as possible", 10, 180);

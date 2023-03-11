@@ -11,18 +11,22 @@
   text-align: center;
   border: 1px solid black;
   font-size: 25px;
+  background-color: gray;
 }
 
 #new-game-button {
   background-color: #af4c6f;
-  border: none;
   border-radius: 10px;
   color: white;
   display: block;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  float: right;
+  position: fixed;
   font-size: 16px;
   cursor: pointer;
+}
+
+body {
+  background-image: url(./images/Wallpaper-Republic-WoodlandBirds-1.jpg.optimal.jpg);
 }
