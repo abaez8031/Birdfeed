@@ -7,7 +7,7 @@ class Bird {
     this.speed = Math.random() * 5 + 2;
     this.ctx = ctx;
     this.image = new Image();
-    this.image.src = "/images/My project.png";
+    this.image.src = "/assets/My project.png";
     this.frame = 3;
     setInterval(this.updateFrame.bind(this), 100);
   }

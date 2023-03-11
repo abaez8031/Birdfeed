@@ -4,7 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  cursor: url("/images/1527735.png"), default;
+  cursor: url("/assets/1527735.png"), default;
 }
 
 #scoreboard {
@@ -22,11 +22,24 @@
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  position: fixed;
+  float: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#pause-button {
+  background-color: #af4c6f;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  float: right;
   font-size: 16px;
   cursor: pointer;
 }
 
 body {
-  background-image: url(./images/Wallpaper-Republic-WoodlandBirds-1.jpg.optimal.jpg);
+  background-image: url(./assets/Wallpaper-Republic-WoodlandBirds-1.jpg.optimal.jpg);
 }

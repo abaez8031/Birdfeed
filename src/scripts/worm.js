@@ -2,7 +2,7 @@ class Worm {
   constructor(ctx, x, y) {
     this.ctx = ctx;
     this.image = new Image();
-    this.image.src = "./images/worm_1fab1.png";
+    this.image.src = "./assets/worm_1fab1.png";
     this.x = x;
     this.y = y;
     this.width = 30;

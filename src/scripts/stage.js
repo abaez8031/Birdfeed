@@ -25,7 +25,7 @@ class Stage {
     // if(this.game.isPlaying()) {
       this.ctx.clearRect(0, 0, 1000, 500);
       const background = new Image();
-      background.src = "./images/stage.png";
+      background.src = "./assets/stage.png";
       this.ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
       const feeder = new Feeder(this.ctx);
