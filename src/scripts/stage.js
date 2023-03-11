@@ -12,12 +12,17 @@ class Stage {
     this.animate();
 
     setInterval(() => {
-      this.birds.push(new Bird(this.ctx));
+      if(this.game.isPlaying()) {
+        this.birds.push(new Bird(this.ctx));
+      }
+      else {
+        return;
+      }
     }, 1000);
   }
 
   animate() {
-    if(this.game.isPlaying) {
+    // if(this.game.isPlaying()) {
       this.ctx.clearRect(0, 0, 1000, 500);
       const background = new Image();
       background.src = "./images/stage.png";
@@ -40,10 +45,13 @@ class Stage {
       // this.ctx.fillRect(50, 50, 300, 100);
       // this.ctx.fillText(`Score: ${this.score}`, 50, 50);
       requestAnimationFrame(this.animate);
-    }
-    else {
-      this.ctx.clearRect(0,0,canvas.width, canvas.height)
-    }
+    // }
+    // else {
+    //   this.ctx.clearRect(0,0,canvas.width, canvas.height)
+    //   this.birds = []
+    //   clearInterval(birdsTimer)
+    //   requestAnimationFrame(this.animate)
+    // }
   }
 
 }

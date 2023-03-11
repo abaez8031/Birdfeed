@@ -5,27 +5,28 @@ import Worm from "./worm";
 
 const newGameBtn = document.getElementById("new-game-button")
 const scoreboard = document.getElementById("scoreboard");
+const canvas = document.getElementById("canvas");
+canvas.width = 1000;
+canvas.height = 500;
+const ctx = canvas.getContext("2d");
 let activeGame = false;
+let game = null;
 
 class Game {
   constructor() {
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
     this.ctx = ctx;
-    canvas.width = 1000;
-    canvas.height = 500;
+    this.playing = true;
     this.stage = new Stage(this,ctx);
     this.timeRemaining = 60;
     this.score = 0;
-    this.playing = true;
     activeGame = true;
     canvas.addEventListener("click", this.handleClick.bind(this));
     setInterval(this.renderScore.bind(this), 0);
     
-    const timer = setInterval(() => {
+    this.timer = setInterval(() => {
       this.timeRemaining--;
       if (this.timeRemaining <= 0) {
-        clearInterval(timer)
+        clearInterval(this.timer)
         this.endGame()
       }
     }, 1000);
@@ -79,17 +80,22 @@ class Game {
     this.playing = false;
     activeGame = false;
     alert(`GAME OVER! Your score is ${this.score}`);
+    this.stage.birds = [];
   }
 
   restartGame() {
+    if (this.playing) {
+      this.endGame()
+    }
+    clearInterval(this.timer)
     this.score = 0;
     this.timeRemaining = 60;
     activeGame = true;
     this.playing = true;
-    const timer = setInterval(() => {
+    this.timer = setInterval(() => {
       this.timeRemaining--;
       if (this.timeRemaining <= 0) {
-        clearInterval(timer)
+        clearInterval(this.timer)
         this.endGame()
       }
     }, 1000);
@@ -101,11 +107,26 @@ class Game {
 
 }
 
+if(!game) {
+const background = new Image();
+background.src = "./images/1200593Blackbird, Paul's garden2B New Zealand Birds Website.jpg"
+ctx.drawImage(background, 0,0, 1000, 500)
+ctx.font = "20px Helvetica";
+ctx.fillStyle = "red";
+ctx.fillText("The objective of this game is to feed the flying birds", 10, 60);
+ctx.fillText("1. Use your mouse to aim your worm gun at the birds flying overhead", 10, 120);
+ctx.fillText("2. You have 60 seconds to feed as many birds as possible", 10, 180);
+ctx.fillText("3. Happy hunting! Ahem i mean feeding!", 10, 240);
+}
 
-let game = new Game();
+
 newGameBtn.addEventListener("click", () => {
-  if(activeGame) return;
-  game.restartGame();
+  if(!game) {
+    game = new Game()
+  }
+  else {
+    game.restartGame()
+  }
 })
 
 export default Game;
