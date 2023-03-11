@@ -72,22 +72,27 @@ class Game {
   }
 
   renderScore() {
-    if(activeGame) {
       scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining}`;
-    }
-    else {
-      scoreboard.innerText= "SCORE: 0 TIME: 60"
-    }
     }
 
   endGame() {
     this.playing = false;
     activeGame = false;
     alert(`GAME OVER! Your score is ${this.score}`);
+  }
+
+  restartGame() {
     this.score = 0;
     this.timeRemaining = 60;
-    newGameBtn.style.display = "block";
-    this.ctx.clearRect(0,0,canvas.width, canvas.height)
+    activeGame = true;
+    this.playing = true;
+    const timer = setInterval(() => {
+      this.timeRemaining--;
+      if (this.timeRemaining <= 0) {
+        clearInterval(timer)
+        this.endGame()
+      }
+    }, 1000);
   }
 
   isPlaying() {
@@ -96,12 +101,11 @@ class Game {
 
 }
 
-new Game();
 
+let game = new Game();
 newGameBtn.addEventListener("click", () => {
   if(activeGame) return;
-  new Game()
+  game.restartGame();
 })
-
 
 export default Game;
