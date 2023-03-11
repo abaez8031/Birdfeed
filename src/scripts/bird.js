@@ -3,7 +3,7 @@ class Bird {
     this.width = 35;
     this.height = 35;
     this.x = 0;
-    this.y = Math.random() * (canvas.height - this.height);
+    this.y = this.generateY()
     this.speed = Math.random() * 5 + 2;
     this.ctx = ctx;
     this.image = new Image();
@@ -37,6 +37,14 @@ class Bird {
     } else {
       this.frame++;
     }
+  }
+
+  generateY() {
+    let y = Math.random() * (canvas.height - this.height);
+    while (y > 250) {
+      y = Math.random() * (canvas.height - this.height);
+    }
+    return y
   }
 }
 
