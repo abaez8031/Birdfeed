@@ -70,8 +70,9 @@ class Game {
 
   endGame() {
     this.playing = false;
-    clearInterval(timer);
+    clearInterval(this.timer);
   }
+  
 }
 
 new Game();
