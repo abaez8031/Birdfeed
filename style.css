@@ -14,3 +14,17 @@
   border: 1px solid black;
   font-size: 25px;
 }
+
+#new-game-button {
+  background-color: #af4c6f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  float: right;
+  font-size: 16px;
+  cursor: pointer;
+}

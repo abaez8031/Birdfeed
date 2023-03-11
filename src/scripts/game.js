@@ -3,6 +3,10 @@ import { setInterval } from "core-js";
 import Stage from "./stage";
 import Worm from "./worm";
 
+const newGameBtn = document.getElementById("new-game-button")
+const scoreboard = document.getElementById("scoreboard");
+let activeGame = false;
+
 class Game {
   constructor() {
     const canvas = document.getElementById("canvas");
@@ -10,10 +14,11 @@ class Game {
     this.ctx = ctx;
     canvas.width = 1000;
     canvas.height = 500;
-    this.stage = new Stage(ctx);
+    this.stage = new Stage(this,ctx);
     this.timeRemaining = 60;
     this.score = 0;
     this.playing = true;
+    activeGame = true;
     canvas.addEventListener("click", this.handleClick.bind(this));
     setInterval(this.renderScore.bind(this), 0);
     
@@ -67,17 +72,36 @@ class Game {
   }
 
   renderScore() {
-    const scoreboard = document.getElementById("scoreboard");
-    scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining}`;
-  }
+    if(activeGame) {
+      scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining}`;
+    }
+    else {
+      scoreboard.innerText= "SCORE: 0 TIME: 60"
+    }
+    }
 
   endGame() {
     this.playing = false;
+    activeGame = false;
     alert(`GAME OVER! Your score is ${this.score}`);
+    this.score = 0;
+    this.timeRemaining = 60;
+    newGameBtn.style.display = "block";
+    this.ctx.clearRect(0,0,canvas.width, canvas.height)
+  }
+
+  isPlaying() {
+    return this.playing
   }
 
 }
 
 new Game();
+
+newGameBtn.addEventListener("click", () => {
+  if(activeGame) return;
+  new Game()
+})
+
 
 export default Game;
