@@ -35,9 +35,8 @@ class Game {
 
   handleClick(e) {
     if (this.playing) {
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const x = e.offsetX;
+      const y = e.offsetY;
       this.stage.worms.push(new Worm(this.ctx, x, y));
       this.stage.worms.forEach((worm) => this.checkWormShot(worm));
       setTimeout(() => {
