@@ -127,4 +127,10 @@ newGameBtn.addEventListener("click", () => {
   }
 })
 
+canvas.addEventListener("click", () => {
+  if(!game) {
+    game = new Game()
+  }
+})
+
 export default Game;
