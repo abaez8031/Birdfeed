@@ -121,6 +121,7 @@ ctx.fillText("3. Happy hunting! Ahem i mean feeding!", 10, 240);
 newGameBtn.addEventListener("click", () => {
   if(!game) {
     game = new Game()
+    audio.play()
   }
   else {
     game.restartGame()
