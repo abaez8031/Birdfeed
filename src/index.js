@@ -4,6 +4,7 @@ import Feeder from "./scripts/feeder";
 import Bird from "./scripts/bird";
 import Worm from "./scripts/worm";
 const audio = document.getElementById("audio")
+audio.loop = true;
 const pauseBtn = document.getElementById("pause-button")
 
 let isPaused = false;

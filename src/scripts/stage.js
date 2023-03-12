@@ -2,6 +2,9 @@ import Feeder from "./feeder";
 import Bird from "./bird";
 import Worm from "./worm";
 
+const background = new Image();
+background.src = "./assets/stage.png";
+
 class Stage {
   constructor(game,ctx) {
     this.game = game;
@@ -24,8 +27,6 @@ class Stage {
   animate() {
     // if(this.game.isPlaying()) {
       this.ctx.clearRect(0, 0, 1000, 500);
-      const background = new Image();
-      background.src = "./assets/stage.png";
       this.ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
       const feeder = new Feeder(this.ctx);
