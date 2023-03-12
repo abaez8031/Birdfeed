@@ -114,7 +114,7 @@ ctx.fillStyle = "pink";
 ctx.fillText("The objective of this game is to feed the flying birds", 10, 60);
 ctx.fillText("1. Use your mouse to aim your worm gun at the birds flying overhead", 10, 120);
 ctx.fillText("2. You have 60 seconds to feed as many birds as possible", 10, 180);
-ctx.fillText("3. Happy hunting! Ahem i mean feeding!", 10, 240);
+ctx.fillText("3. Happy hunting! Ahem I mean feeding!", 10, 240);
 }
 
 
