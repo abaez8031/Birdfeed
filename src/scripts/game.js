@@ -56,7 +56,6 @@ class Game {
           worm.y < bird.y + bird.height &&
           worm.y + worm.height > bird.y
         ) {
-          console.log("HIT");
           const index = this.stage.birds.indexOf(bird);
           this.stage.birds.splice(index, 1);
           this.addPoint.bind(this)();

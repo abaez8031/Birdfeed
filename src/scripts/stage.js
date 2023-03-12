@@ -25,7 +25,6 @@ class Stage {
   }
 
   animate() {
-    // if(this.game.isPlaying()) {
       this.ctx.clearRect(0, 0, 1000, 500);
       this.ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
@@ -42,17 +41,8 @@ class Stage {
       this.worms.forEach((worm) => {
         worm.draw();
       });
-      // this.ctx.fillStyle = "rgba(150,70,20,.3)";
-      // this.ctx.fillRect(50, 50, 300, 100);
-      // this.ctx.fillText(`Score: ${this.score}`, 50, 50);
+      
       requestAnimationFrame(this.animate);
-    // }
-    // else {
-    //   this.ctx.clearRect(0,0,canvas.width, canvas.height)
-    //   this.birds = []
-    //   clearInterval(birdsTimer)
-    //   requestAnimationFrame(this.animate)
-    // }
   }
 
 }
