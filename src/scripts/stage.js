@@ -12,9 +12,11 @@ class Stage {
     this.birds = [];
     this.worms = [];
     this.animate = this.animate.bind(this);
+    this.feeder = new Feeder(this.ctx);
     this.animate();
 
     setInterval(() => {
+      // Randomize bird creation. 1-3 birds per sec or random time interval
       if(this.game.isPlaying()) {
         this.birds.push(new Bird(this.ctx));
       }
@@ -28,9 +30,7 @@ class Stage {
       this.ctx.clearRect(0, 0, 1000, 500);
       this.ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
-      const feeder = new Feeder(this.ctx);
-  
-      feeder.draw();
+      this.feeder.draw();
   
       this.birds.forEach((bird) => {
         bird.update();

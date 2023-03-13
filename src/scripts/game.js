@@ -6,9 +6,9 @@ import Worm from "./worm";
 const newGameBtn = document.getElementById("new-game-button")
 const scoreboard = document.getElementById("scoreboard");
 const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 canvas.width = 1000;
 canvas.height = 500;
-const ctx = canvas.getContext("2d");
 let activeGame = false;
 let game = null;
 
@@ -71,7 +71,7 @@ class Game {
   }
 
   renderScore() {
-      scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining}`;
+      scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining} ACCURACY: `;
     }
 
   endGame() {
@@ -110,9 +110,9 @@ ctx.fillStyle = "aliceblue"
 ctx.fillRect(0,0,canvas.width, canvas.height)
 ctx.font = "20px Helvetica";
 ctx.fillStyle = "pink";
-ctx.fillText("The objective of this game is to feed the flying birds", 10, 60);
-ctx.fillText("1. Use your mouse to aim your worm gun at the birds flying overhead", 10, 120);
-ctx.fillText("2. You have 60 seconds to feed as many birds as possible", 10, 180);
+ctx.fillText("The objective of this game is to feed the flying birds.", 10, 60);
+ctx.fillText("1. Use your mouse to aim your worm gun at the birds flying overhead.", 10, 120);
+ctx.fillText("2. You have 60 seconds to feed as many birds as possible.", 10, 180);
 ctx.fillText("3. Happy hunting! Ahem I mean feeding!", 10, 240);
 }
 
