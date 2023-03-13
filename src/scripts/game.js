@@ -95,6 +95,7 @@ class Game {
     activeGame = false;
     alert(`GAME OVER! Your score is ${this.score}`);
     this.stage.birds = [];
+    this.stage.clocks = [];
   }
 
   restartGame() {
@@ -104,6 +105,7 @@ class Game {
     clearInterval(this.timer)
     this.score = 0;
     this.timeRemaining = 60;
+    this.numShots = 0;
     activeGame = true;
     this.playing = true;
     this.timer = setInterval(() => {
@@ -129,7 +131,8 @@ ctx.fillStyle = "pink";
 ctx.fillText("The objective of this game is to feed the flying birds.", 10, 60);
 ctx.fillText("1. Use your mouse to aim your worm gun at the birds flying overhead.", 10, 120);
 ctx.fillText("2. You have 60 seconds to feed as many birds as possible.", 10, 180);
-ctx.fillText("3. Happy hunting! Ahem I mean feeding!", 10, 240);
+ctx.fillText("3. Hit the hourglasses to add 3 seconds on to your time limit.", 10, 240);
+ctx.fillText("4. Happy hunting! Ahem I mean feeding!", 10, 300);
 }
 
 
