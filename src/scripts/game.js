@@ -11,15 +11,15 @@ canvas.width = 1000;
 canvas.height = 500;
 let activeGame = false;
 let game = null;
+let highScoresList = document.getElementById("high-scores")
 
 // IMPLEMENTING A HIGH SCORE LEADERBOARD
-let highscores = {
-  "PLS": 60,
-  "TAK": 50,
-  "ME": 40,
-  "OFF": 30,
-  "DIS": 20
-};
+let highScores = 
+  {"PLS": 60,
+   "TAK": 50,
+   "ME": 40,
+   "OFF": 30,
+   "DIS": 20}
 
 class Game {
   constructor() {
@@ -161,5 +161,16 @@ canvas.addEventListener("click", () => {
     audio.play()
   }
 })
+
+function renderHighScores() {
+  let top5 = {};
+  for(let key in highScores) {
+    let li = document.createElement("li")
+    li.innerText = `${key}: ${highScores[key]}`
+    highScoresList.appendChild(li)
+  }
+}
+
+renderHighScores();
 
 export default Game;
