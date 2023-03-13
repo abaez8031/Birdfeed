@@ -12,6 +12,15 @@ canvas.height = 500;
 let activeGame = false;
 let game = null;
 
+// IMPLEMENTING A HIGH SCORE LEADERBOARD
+let highscores = {
+  "PLS": 60,
+  "TAK": 50,
+  "ME": 40,
+  "OFF": 30,
+  "DIS": 20
+};
+
 class Game {
   constructor() {
     this.ctx = ctx;
@@ -93,9 +102,9 @@ class Game {
   endGame() {
     this.playing = false;
     activeGame = false;
-    alert(`GAME OVER! Your score is ${this.score}`);
     this.stage.birds = [];
     this.stage.clocks = [];
+    alert(`GAME OVER! Your score is ${this.score}`);
   }
 
   restartGame() {
