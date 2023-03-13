@@ -17,8 +17,6 @@ class Stage {
     this.feeder = new Feeder(this.ctx);
     this.animate();
 
-    // setInterval() for generating clocks
-
     setInterval(() => {
       if(this.game.isPlaying()) {
         this.clocks.push(new Clock(this.ctx))
@@ -29,14 +27,26 @@ class Stage {
     }, 7000)
 
     setInterval(() => {
-      const numBirds = Math.floor(Math.random() * 3) + 1
+      let numBirds = 1;
+      if (this.game.timeRemaining <= 10) {
+        numBirds = 6;
+      }
+      else if (this.game.timeRemaining <= 20) {
+        numBirds = 5;
+      }
+      else if (this.game.timeRemaining <= 30) {
+        numBirds = 4;
+      }
+      else if (this.game.timeRemaining <= 40) {
+        numBirds = 3;
+      }
+      else if (this.game.timeRemaining <= 50) {
+        numBirds = 2;
+      }
       if(this.game.isPlaying()) {
         for(let i = 0; i < numBirds; i++) {
           this.birds.push(new Bird(this.ctx));
         }
-      }
-      else {
-        return;
       }
     }, 1000);
   }
