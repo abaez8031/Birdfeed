@@ -3,6 +3,8 @@ import Game from "./scripts/game";
 import Feeder from "./scripts/feeder";
 import Bird from "./scripts/bird";
 import Worm from "./scripts/worm";
+import Clock from "./scripts/clock";
+
 const audio = document.getElementById("audio")
 audio.loop = true;
 const pauseBtn = document.getElementById("pause-button")

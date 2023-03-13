@@ -19,6 +19,7 @@ class Game {
     this.stage = new Stage(this,ctx);
     this.timeRemaining = 60;
     this.score = 0;
+    this.numShots = 0;
     activeGame = true;
     canvas.addEventListener("click", this.handleClick.bind(this));
     setInterval(this.renderScore.bind(this), 0);
@@ -35,6 +36,7 @@ class Game {
 
   handleClick(e) {
     if (this.playing) {
+      this.numShots++
       const x = e.offsetX;
       const y = e.offsetY;
       this.stage.worms.push(new Worm(this.ctx, x, y));
@@ -49,6 +51,20 @@ class Game {
 
   checkWormShot(worm) {
     if (this.playing) {
+      // Add collision detection for clocks
+      this.stage.clocks.forEach(clock => {
+        if(
+          worm.x < clock.x + clock.width &&
+          worm.x + worm.width > clock.x &&
+          worm.y < clock.y + clock.height &&
+          worm.y + worm.height > clock.y
+        ) {
+          const index = this.stage.clocks.indexOf(clock)
+          this.stage.clocks.splice(index,1)
+          this.timeRemaining += 3
+          this.numShots--
+        }
+      })
       this.stage.birds.forEach((bird) => {
         if (
           worm.x < bird.x + bird.width &&
@@ -71,7 +87,7 @@ class Game {
   }
 
   renderScore() {
-      scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining} ACCURACY: `;
+      scoreboard.innerText = `SCORE: ${this.score} TIME: ${this.timeRemaining} ACCURACY: ${Math.round(this.score/ this.numShots * 100)}% `;
     }
 
   endGame() {

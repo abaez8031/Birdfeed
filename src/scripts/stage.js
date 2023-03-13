@@ -1,6 +1,7 @@
 import Feeder from "./feeder";
 import Bird from "./bird";
 import Worm from "./worm";
+import Clock from "./clock"
 
 const background = new Image();
 background.src = "./assets/stage.png";
@@ -11,14 +12,28 @@ class Stage {
     this.ctx = ctx;
     this.birds = [];
     this.worms = [];
+    this.clocks = [];
     this.animate = this.animate.bind(this);
     this.feeder = new Feeder(this.ctx);
     this.animate();
 
+    // setInterval() for generating clocks
+
     setInterval(() => {
-      // Randomize bird creation. 1-3 birds per sec or random time interval
       if(this.game.isPlaying()) {
-        this.birds.push(new Bird(this.ctx));
+        this.clocks.push(new Clock(this.ctx))
+      }
+      else {
+        return;
+      }
+    }, 7000)
+
+    setInterval(() => {
+      const numBirds = Math.floor(Math.random() * 3) + 1
+      if(this.game.isPlaying()) {
+        for(let i = 0; i < numBirds; i++) {
+          this.birds.push(new Bird(this.ctx));
+        }
       }
       else {
         return;
@@ -40,6 +55,11 @@ class Stage {
   
       this.worms.forEach((worm) => {
         worm.draw();
+      });
+
+      this.clocks.forEach(clock => {
+        clock.update();
+        clock.draw();
       });
       
       requestAnimationFrame(this.animate);
