@@ -165,11 +165,11 @@ canvas.addEventListener("click", () => {
 
 let scores = 
   {
-    "DIS": 20,
-    "TAK": 50,
-    "OFF": 30,
-    "ME": 40,
-    "PLS": 60
+    "THIS": 20,
+    "VERY": 50,
+    "SCORE": 30,
+    "IS": 40,
+    "BTBL": 60
   }
 
 function renderHighScores() {
