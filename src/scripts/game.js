@@ -97,7 +97,9 @@ class Game {
     activeGame = false;
     this.stage.birds = [];
     this.stage.clocks = [];
-    alert(`GAME OVER! Your score is ${this.score}`);
+    let name = prompt(`GAME OVER! Your score is ${this.score}. What would you like your name to be on the leaderboard?`);
+    scores[name] = this.score
+    renderHighScores()
     
   }
 
@@ -154,6 +156,9 @@ canvas.addEventListener("click", () => {
     game = new Game()
     audio.play()
   }
+  else if(!game.isPlaying()) {
+    game.restartGame()
+  }
 })
 
 // IMPLEMENTING A HIGH SCORE LEADERBOARD
@@ -168,6 +173,7 @@ let scores =
   }
 
 function renderHighScores() {
+  highScoresList.innerHTML = "";
   let sortedScores = Object.entries(scores).sort((a,b) => b[1] - a[1])
   for(let i = 0; i < 5; i++) {
     let li = document.createElement("li")
@@ -175,7 +181,6 @@ function renderHighScores() {
     highScoresList.appendChild(li)
   }
 }
-
 
 renderHighScores();
 
