@@ -21,7 +21,6 @@
   display: block;
   padding: 10px 20px;
   text-align: center;
-  text-decoration: none;
   float: left;
   font-size: 16px;
   cursor: pointer;
@@ -34,10 +33,22 @@
   display: block;
   padding: 10px 20px;
   text-align: center;
-  text-decoration: none;
   float: right;
   font-size: 16px;
   cursor: pointer;
+}
+
+#high-scores {
+  border: 1px solid black;
+  position: fixed;
+  top: 150px;
+  left: 50px;
+  background-color: bisque;
+  color: #af4c6f;
+}
+
+#high-scores td {
+  border: 1px solid black;
 }
 
 body {
