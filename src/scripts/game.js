@@ -13,13 +13,6 @@ let activeGame = false;
 let game = null;
 let highScoresList = document.getElementById("high-scores")
 
-// IMPLEMENTING A HIGH SCORE LEADERBOARD
-let highScores = 
-  {"PLS": 60,
-   "TAK": 50,
-   "ME": 40,
-   "OFF": 30,
-   "DIS": 20}
 
 class Game {
   constructor() {
@@ -105,6 +98,7 @@ class Game {
     this.stage.birds = [];
     this.stage.clocks = [];
     alert(`GAME OVER! Your score is ${this.score}`);
+    
   }
 
   restartGame() {
@@ -162,14 +156,26 @@ canvas.addEventListener("click", () => {
   }
 })
 
+// IMPLEMENTING A HIGH SCORE LEADERBOARD
+
+let scores = 
+  {
+    "DIS": 20,
+    "TAK": 50,
+    "OFF": 30,
+    "ME": 40,
+    "PLS": 60
+  }
+
 function renderHighScores() {
-  let top5 = {};
-  for(let key in highScores) {
+  let sortedScores = Object.entries(scores).sort((a,b) => b[1] - a[1])
+  for(let i = 0; i < 5; i++) {
     let li = document.createElement("li")
-    li.innerText = `${key}: ${highScores[key]}`
+    li.innerText = `${sortedScores[i][0]}: ${sortedScores[i][1]}`
     highScoresList.appendChild(li)
   }
 }
+
 
 renderHighScores();
 

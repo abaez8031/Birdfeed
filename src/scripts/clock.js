@@ -8,7 +8,7 @@ class Clock {
     this.ctx = ctx;
     this.image = new Image();
     this.image.src =
-      "/assets/1586017.png";
+      "./assets/1586017.png";
   }
 
   draw() {
