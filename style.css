@@ -24,6 +24,8 @@
   float: left;
   font-size: 16px;
   cursor: pointer;
+  width: 200px;
+  height: 50px;
 }
 
 #pause-button {
@@ -36,6 +38,28 @@
   float: right;
   font-size: 16px;
   cursor: pointer;
+  width: 200px;
+  height: 50px;
+}
+
+#github-link {
+  background-color: #af4c6f;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  position:absolute;
+  bottom:0;
+}
+
+#github-link img {
+  width: 35px;
+  height: 35px;
 }
 
 #high-scores {
