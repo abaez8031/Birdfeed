@@ -182,10 +182,10 @@ canvas.addEventListener("click", () => {
 // IMPLEMENTING A HIGH SCORE LEADERBOARD
 
 let scores = {
-  THIS: 60,
-  VERY: 30,
-  SCORE: 50,
-  IS: 40,
+  ARIEL: 100,
+  VERY: 40,
+  SCORE: 80,
+  IS: 60,
   BTBL: 20,
 };
 
