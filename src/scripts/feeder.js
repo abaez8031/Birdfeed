@@ -1,5 +1,3 @@
-import Stage from "./stage";
-
 let frame;
 canvas.addEventListener("mousemove", (e) => {
   const x = e.offsetX;

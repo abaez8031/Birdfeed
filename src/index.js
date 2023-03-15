@@ -2,6 +2,7 @@ import Stage from "./scripts/stage";
 import Game from "./scripts/game";
 import Feeder from "./scripts/feeder";
 import LeftBird from "./scripts/leftbird";
+import RightBird from "./scripts/rightbird";
 import Worm from "./scripts/worm";
 import Clock from "./scripts/clock";
 

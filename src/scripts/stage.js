@@ -1,7 +1,6 @@
 import Feeder from "./feeder";
 import LeftBird from "./leftbird";
 import RightBird from "./rightbird";
-import Worm from "./worm";
 import Clock from "./clock";
 
 const background = new Image();
