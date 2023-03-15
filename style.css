@@ -88,10 +88,15 @@
   position: absolute;
   top: 150px;
   left: 25px;
-  /* height: 150px;
-  width: 150px; */
+  height: 150px;
+  width: 150px;
   background-color: bisque;
   color: #af4c6f;
+}
+
+#high-scores tr {
+  height: 50px;
+  width: 50px;
 }
 
 #high-scores td {
