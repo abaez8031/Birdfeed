@@ -28,7 +28,7 @@
   height: 50px;
 }
 
-#pause-button {
+#github-link {
   background-color: #af4c6f;
   border-radius: 10px;
   color: white;
@@ -42,7 +42,7 @@
   height: 50px;
 }
 
-#github-link {
+#pause-button {
   background-color: #af4c6f;
   border-radius: 10px;
   color: white;
@@ -66,13 +66,27 @@
   border: 1px solid black;
   position: fixed;
   top: 150px;
-  left: 50px;
+  left: 25px;
+  height: 150px;
+  width: 150px;
   background-color: bisque;
   color: #af4c6f;
 }
 
 #high-scores td {
   border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+#high-scores tr:nth-child(odd) {
+  background-color: seashell;
+  color: #af4c6f;
+}
+
+#high-scores tr:first-child {
+  background-color: #af4c6f;
+  color: white
 }
 
 body {

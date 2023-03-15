@@ -201,7 +201,7 @@ function renderHighScores() {
   let headerRow = document.createElement("tr");
   let userHead = document.createElement("td")
   let scoreHead = document.createElement("td")
-  userHead.innerText = "User";
+  userHead.innerText = "Name";
   scoreHead.innerText = "Score"
   headerRow.appendChild(userHead)
   headerRow.appendChild(scoreHead)
