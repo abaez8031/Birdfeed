@@ -1,5 +1,6 @@
 import Feeder from "./feeder";
 import Bird from "./bird";
+import RightBird from "./rightbird";
 import Worm from "./worm";
 import Clock from "./clock"
 
@@ -44,8 +45,11 @@ class Stage {
         numBirds = 2;
       }
       if(this.game.isPlaying()) {
-        for(let i = 0; i < numBirds; i++) {
+        for(let i = 0; i < Math.floor(numBirds / 2); i++) {
           this.birds.push(new Bird(this.ctx));
+        }
+        for(let i = 0; i < Math.ceil(numBirds / 2); i++) {
+          this.birds.push(new RightBird(this.ctx))
         }
       }
     }, 1000);
