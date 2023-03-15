@@ -9,7 +9,6 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 1000;
 canvas.height = 500;
-let activeGame = false;
 let game = null;
 let highScoresList = document.getElementById("high-scores");
 
@@ -21,7 +20,6 @@ class Game {
     this.timeRemaining = 60;
     this.score = 0;
     this.numShots = 0;
-    activeGame = true;
     canvas.addEventListener("click", this.handleClick.bind(this));
     setInterval(this.renderScore.bind(this), 0);
 
@@ -94,13 +92,10 @@ class Game {
 
   endGame() {
     this.playing = false;
-    activeGame = false;
     this.stage.birds = [];
     this.stage.clocks = [];
-    let name = prompt(
-      `GAME OVER! Your score is ${this.score}. What would you like your name to be on the leaderboard?`
-    );
-    scores[name] = this.score;
+    clearInterval(this.timer);
+    checkHighScore(this.score);
     renderHighScores();
   }
 
@@ -108,11 +103,9 @@ class Game {
     if (this.playing) {
       this.endGame();
     }
-    clearInterval(this.timer);
     this.score = 0;
     this.timeRemaining = 60;
     this.numShots = 0;
-    activeGame = true;
     this.playing = true;
     this.timer = setInterval(() => {
       this.timeRemaining--;
@@ -181,16 +174,29 @@ canvas.addEventListener("click", () => {
 
 // IMPLEMENTING A HIGH SCORE LEADERBOARD
 
-let scores = {
-  ARIEL: 100,
-  VERY: 40,
-  SCORE: 80,
-  IS: 60,
-  BTBL: 20,
-};
+
+function checkHighScore(score) {
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || []
+  const lowestScore = highScores[4]?.score || 0; 
+
+  if (score > lowestScore) {
+    saveHighScore(score, highScores);
+    renderHighScores();
+  }
+}
+
+function saveHighScore(score, highScores) {
+  const name = prompt("Your score is worthy of the leaderboard. What name would you like to be displayed?");
+  const newScore = {score: score, name: name};
+  highScores.push(newScore);
+  highScores.sort((a,b) => b.score - a.score);
+  highScores.splice(5);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
 
 function renderHighScores() {
   // CREATE AND RENDER HIGH SCORES TABLE
+  const highScores = JSON.parse(localStorage.getItem("highScores")) ?? []
   highScoresList.innerHTML = "";
   let headerRow = document.createElement("tr");
   let userHead = document.createElement("td")
@@ -200,13 +206,12 @@ function renderHighScores() {
   headerRow.appendChild(userHead)
   headerRow.appendChild(scoreHead)
   highScoresList.appendChild(headerRow)
-  let sortedScores = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < highScores.length; i++) {
     let tr = document.createElement("tr");
     let userTD = document.createElement("td");
     let scoreTD = document.createElement("td");
-    userTD.innerText = sortedScores[i][0];
-    scoreTD.innerText = sortedScores[i][1]
+    userTD.innerText = highScores[i].name;
+    scoreTD.innerText = highScores[i].score
     tr.appendChild(userTD);
     tr.appendChild(scoreTD);
     highScoresList.appendChild(tr)
