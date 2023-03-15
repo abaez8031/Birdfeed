@@ -87,7 +87,7 @@ class Game {
   renderScore() {
     scoreboard.innerText = `SCORE: ${this.score} TIME: ${
       this.timeRemaining
-    } ACCURACY: ${Math.round((this.score / this.numShots) * 100) ? Math.round((this.score / this.numShots) * 100) : 100 }% `;
+    } ACCURACY: ${Math.round((this.score / this.numShots) * 100) ? Math.round((this.score / this.numShots) * 100) : 0 }% `;
   }
 
   endGame() {
@@ -122,36 +122,42 @@ class Game {
 }
 
 if (!game) {
-  ctx.fillStyle = "aliceblue";
+  ctx.fillStyle = "snow";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.font = "20px Helvetica";
   ctx.fillStyle = "pink";
   ctx.fillText(
     "This marvelous game is called Birdfeed!",
-    10,
-    60
+    150,
+    70
   );
   ctx.fillText(
     "The objective of the game is to feed the flying birds.",
-    10,
-    120
+    150,
+    130
   );
+
   ctx.fillText(
     "1. Use your mouse to aim your worm gun at the birds flying overhead.",
-    10,
-    180
+    150,
+    190
   );
   ctx.fillText(
-    "2. You have 60 seconds to feed as many birds as possible.",
-    10,
-    240
+    "2. Click to fire a worm",
+    150,
+    250
   );
   ctx.fillText(
-    "3. Hit the hourglasses to add 3 seconds on to your time limit.",
-    10,
-    300
+    "3. You have 60 seconds to feed as many birds as possible.",
+    150,
+    310
   );
-  ctx.fillText("4. Happy hunting! Ahem I mean feeding!", 10, 360);
+  ctx.fillText(
+    "4. Hit the hourglasses to add 3 seconds on to your time limit.",
+    150,
+    370
+  );
+  ctx.fillText("Happy hunting! Ahem I mean feeding!", 150, 430);
 }
 
 newGameBtn.addEventListener("click", () => {
