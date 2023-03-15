@@ -1,4 +1,4 @@
-class Bird {
+class LeftBird {
   constructor(ctx) {
     this.width = 35;
     this.height = 35;
@@ -48,4 +48,4 @@ class Bird {
   }
 }
 
-export default Bird;
+export default LeftBird;
