@@ -87,7 +87,7 @@ class Game {
   renderScore() {
     scoreboard.innerText = `SCORE: ${this.score} TIME: ${
       this.timeRemaining
-    } ACCURACY: ${Math.round((this.score / this.numShots) * 100)}% `;
+    } ACCURACY: ${Math.round((this.score / this.numShots) * 100) ? Math.round((this.score / this.numShots) * 100) : 100 }% `;
   }
 
   endGame() {
