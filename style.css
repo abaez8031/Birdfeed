@@ -93,15 +93,14 @@
 }
 
 #high-scores tr {
-  height: 50px;
-  width: 50px;
+  max-height: 50px;
+  max-width: 50px;
 }
-
+  
 #high-scores td {
   border: 1px solid black;
   padding: 10px;
   text-align: center;
-  max-height: 50px;
 }
 
 #high-scores tr:nth-child(odd) {
@@ -111,7 +110,7 @@
 
 #high-scores tr:first-child {
   background-color: #af4c6f;
-  color: white
+  color: white;
 }
 
 body {
