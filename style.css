@@ -12,6 +12,8 @@
   border: 1px solid black;
   font-size: 25px;
   background-color: seashell;
+  width: 72%;
+  margin-left: 13.925%;
 }
 
 #new-game-button {
