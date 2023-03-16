@@ -1,6 +1,6 @@
 This is a game called Birdfeed. The objective of the game is to shoot worms into birds mouths as they fly overhead through the screen. The player will be positioned stationary at the bottom of the screen. The player would be able to aim at the birds by using their mouse and shoot the worm gun by clicking. There would be a time limit of about 60 seconds and a score that will increase with each successful shot. For bonus features, I was thinking of introducing a hawk that you should avoid feeding, or clocks that randomly appear and increase your time limit by 3 seconds if you shoot them. I would also like to have background music and a high score leaderboard.
 
-![wireframe](./images/Screenshot%202023-03-09%20at%202.00.26%20PM.png)
+![wireframe](./assets/Screenshot%202023-03-09%20at%202.00.26%20PM.png)
 
 In Birdfeed, users will be able to:
 
