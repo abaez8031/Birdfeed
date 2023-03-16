@@ -204,6 +204,12 @@ function renderHighScores() {
   // CREATE AND RENDER HIGH SCORES TABLE
   const highScores = JSON.parse(localStorage.getItem("highScores")) ?? []
   highScoresList.innerHTML = "";
+  let leaderRow = document.createElement("tr");
+  let leaderCell = document.createElement("td");
+  leaderCell.setAttribute("colspan", 2);
+  leaderCell.innerText = "High Scores";
+  leaderRow.appendChild(leaderCell);
+  highScoresList.appendChild(leaderRow)
   let headerRow = document.createElement("tr");
   let userHead = document.createElement("td")
   let scoreHead = document.createElement("td")
