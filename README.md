@@ -23,6 +23,7 @@ On Wednesday, I would like to implement a high score tracker that is updated aft
 
 I was able to implement collision detection by checking if the worm is at the same position on the canvas as a bird or a clock. If a bird or clock is intersecting with the worm, that bird or clock instance is removed from the array and either a point is added or 3 seconds are added to the timer. 
 
+```
 checkWormShot(worm) {
     if (this.playing) {
       // Add collision detection for clocks
@@ -55,9 +56,11 @@ checkWormShot(worm) {
       return;
     }
   }
+```
 
   I was able to implement a high score leaderboard by storing the top 5 scores in the browser's local storage. Upon finishing the game, the checkHighScore function is invoked which checks if the score achieved in the game was higher than any of the top 5 stored scores. If it is worthy of the leaderboard the player is prompted to enter their name and the data is stored. The renderHighScores function dynamically creates a table to display the highscores.
   
+  ```
   function checkHighScore(score) {
   const highScores = JSON.parse(localStorage.getItem("highScores")) || []
   const lowestScore = highScores[4]?.score || 0; 
@@ -105,3 +108,4 @@ function renderHighScores() {
     tr.appendChild(scoreTD);
     highScoresList.appendChild(tr)
   }
+  ```
