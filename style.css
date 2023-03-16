@@ -120,8 +120,8 @@ body {
 #game-name {
   font-size: 50px;
   position: absolute;
+  width: 100%;
   top: 0;
-  left: 40%;
   text-align: center;
   color: palevioletred;
   font-family: chalkduster;
