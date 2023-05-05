@@ -70,9 +70,14 @@ class Game {
           worm.y < bird.y + bird.height &&
           worm.y + worm.height > bird.y
         ) {
-          const index = this.stage.birds.indexOf(bird);
-          this.stage.birds.splice(index, 1);
           this.addPoint.bind(this)();
+          bird.yDirTracker = "down";
+          bird.yDirTimeTracker = -1;
+
+          if (bird.y >= canvas.height) {
+            const index = this.stage.birds.indexOf(bird);
+            this.stage.birds.splice(index, 1);
+          }
         }
       });
     } else {
