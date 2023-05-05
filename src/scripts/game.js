@@ -125,7 +125,7 @@ if (!game) {
   ctx.fillStyle = "snow";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.font = "20px Helvetica";
-  ctx.fillStyle = "pink";
+  ctx.fillStyle = "#af4c6f";
   ctx.fillText(
     "This marvelous game is called Birdfeed!",
     150,
