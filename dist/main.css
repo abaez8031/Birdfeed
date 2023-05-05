@@ -184,3 +184,7 @@ body {
   color: palevioletred;
   font-family: chalkduster;
 }
+
+#new-game-button:hover, #github-link:hover, #linkedin-link:hover, #pause-button:hover {
+  background-color: #DB7093;
+}

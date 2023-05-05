@@ -192,7 +192,10 @@ function checkHighScore(score) {
 }
 
 function saveHighScore(score, highScores) {
-  const name = prompt("Your score is worthy of the leaderboard. What name would you like to be displayed?");
+  let name = "";
+  while (name.trim() === "") {
+    name = prompt("Your score is worthy of the leaderboard. What name would you like to be displayed?");
+  }
   const newScore = {score: score, name: name};
   highScores.push(newScore);
   highScores.sort((a,b) => b.score - a.score);
