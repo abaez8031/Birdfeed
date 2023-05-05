@@ -5,6 +5,8 @@ class RightBird {
     this.x = 1000;
     this.y = this.generateY();
     this.speed = Math.random() * 5 + 2;
+    this.yDirTimeTracker = 10;
+    this.yDirTracker = "down"
     this.ctx = ctx;
     this.image = new Image();
     this.image.src = "./assets/My project (1).png";
@@ -14,6 +16,20 @@ class RightBird {
 
   update() {
     this.x -= this.speed;
+    if(this.yDirTracker === "down") {
+      this.yDirTimeTracker -= 1
+      this.y -= this.speed
+    }
+    if (this.yDirTracker === "up") {
+      this.yDirTimeTracker += 1
+      this.y += this.speed
+    }
+    if (this.yDirTimeTracker === 15) {
+      this.yDirTracker = "down"
+    }
+    if (this.yDirTimeTracker === 0) {
+      this.yDirTracker = "up"
+    }
   }
 
   draw() {
