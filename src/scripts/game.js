@@ -7,6 +7,7 @@ const newGameBtn = document.getElementById("new-game-button");
 const scoreboard = document.getElementById("scoreboard");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const soundEffect = document.getElementById("quack-sound-effect")
 canvas.width = 1000;
 canvas.height = 500;
 let game = null;
@@ -70,6 +71,12 @@ class Game {
           worm.y < bird.y + bird.height &&
           worm.y + worm.height > bird.y
         ) {
+          if (soundEffect.paused) {
+            soundEffect.play()
+          }
+          else {
+            soundEffect.currentTime = 0
+          }
           this.addPoint.bind(this)();
           bird.yDirTracker = "down";
           bird.yDirTimeTracker = -1;
