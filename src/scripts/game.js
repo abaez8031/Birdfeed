@@ -85,9 +85,11 @@ class Game {
   }
 
   renderScore() {
+    const accuracy = Math.round((this.score / this.numShots) * 100);
+    const displayedAccuracy = accuracy >= 100 ? 100 : accuracy;
     scoreboard.innerText = `SCORE: ${this.score} TIME: ${
       this.timeRemaining
-    } ACCURACY: ${Math.round((this.score / this.numShots) * 100) ? Math.round((this.score / this.numShots) * 100) : 0 }% `;
+    } ACCURACY: ${displayedAccuracy ? displayedAccuracy : 0}% `;
   }
 
   endGame() {
