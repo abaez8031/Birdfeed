@@ -64,8 +64,9 @@ table {
   border: 1px solid black;
   font-size: 25px;
   background-color: seashell;
-  width: 72%;
-  margin-left: 13.925%;
+  width: 60%;
+  margin-left: 20%;
+  border-radius: 5px;
 }
 
 #new-game-button {
@@ -80,7 +81,7 @@ table {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 10%;
   height: 50px;
 }
 
@@ -96,7 +97,7 @@ table {
   position: absolute;
   top: 0;
   right: 0;
-  width: 200px;
+  width: 10%;
   height: 50px;
 }
 
@@ -109,7 +110,7 @@ table {
   text-align: center;
   font-size: 16px;
   cursor: pointer;
-  width: 200px;
+  width: 10%;
   height: 50px;
   position: absolute;
   bottom: 0;
@@ -125,7 +126,7 @@ table {
   text-align: center;
   font-size: 16px;
   cursor: pointer;
-  width: 200px;
+  width: 10%;
   height: 50px;
   position: absolute;
   bottom: 0;
@@ -187,4 +188,15 @@ body {
 
 #new-game-button:hover, #github-link:hover, #linkedin-link:hover, #pause-button:hover {
   background-color: #DB7093;
+}
+
+.topbar {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  border: none;
 }
