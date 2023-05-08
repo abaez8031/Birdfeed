@@ -1,3 +1,5 @@
+## Birdfeed
+
 This is a game called Birdfeed. The objective of the game is to shoot worms into birds mouths as they fly overhead through the screen. The birdfeeder is positioned at the bottom of the screen. The player will aim at the birds by using their mouse and shoot the worm gun by clicking. There is a time limit of 60 seconds and a score that will increase with each successful shot. As well as just aiming at birds, there are clocks that randomly appear and increase your time limit by 3 seconds if you shoot them. There is also background music which can be paused, an accuracy statistic, and a high score leaderboard that utilizes local storage to save the top 5 high scores.
 
 ![wireframe](./assets/Screenshot%202023-03-09%20at%202.00.26%20PM.png)
@@ -14,6 +16,7 @@ This game has been created using the following technologies:
 - Webpack to bundle and transpile the source JavaScript code.
 - npm to manage project dependencies.
 
+## Implementation Timeline
 Between Friday and the weekend I am hoping to have my player rendered in the appropriate position and be able to animate the birds flying through the air.
 
 On Monday, I want to begin to implement the collision detection necessary when the fired worm intersects with a flying bird.
@@ -22,7 +25,7 @@ On Tuesday, I want to be able to increase the score when a shot is successful an
 
 On Wednesday, I would like to implement a high score tracker that is updated after each round of the game.
 
-I was able to implement collision detection by checking if the worm is at the same position on the canvas as a bird or a clock. If a bird or clock is intersecting with the worm, that bird or clock instance is removed from the array and either a point is added or 3 seconds are added to the timer. 
+I was able to implement collision detection by checking if the worm is at the same position on the canvas as a bird or a clock. If a bird is intersecting with the worm one point is added to the score, a quack sound effect is played, and that bird flies off screen. If a clock is intersecting with the worm, that clock instance is removed from the array and 3 seconds are added to the timer. 
 
 ```javascript
 checkWormShot(worm) {
@@ -48,9 +51,20 @@ checkWormShot(worm) {
           worm.y < bird.y + bird.height &&
           worm.y + worm.height > bird.y
         ) {
-          const index = this.stage.birds.indexOf(bird);
-          this.stage.birds.splice(index, 1);
+          if (soundEffect.paused) {
+            soundEffect.play()
+          }
+          else {
+            soundEffect.currentTime = 0
+          }
           this.addPoint.bind(this)();
+          bird.yDirTracker = "down";
+          bird.yDirTimeTracker = -1;
+
+          if (bird.y >= canvas.height) {
+            const index = this.stage.birds.indexOf(bird);
+            this.stage.birds.splice(index, 1);
+          }
         }
       });
     } else {
