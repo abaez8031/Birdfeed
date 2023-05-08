@@ -149,6 +149,7 @@ table {
   left: 25px;
   background-color: bisque;
   color: #af4c6f;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 #high-scores tr {
@@ -172,6 +173,10 @@ table {
   color: white;
 }
 
+#high-scores tr:hover {
+  background-color: pink;
+}
+
 body {
   background-image: url(../assets/Aleks+Animal+Print+Wallpaper.png);
 }
@@ -180,7 +185,7 @@ body {
   font-size: 50px;
   position: absolute;
   width: 100%;
-  top: 11%;
+  top: 8%;
   text-align: center;
   color: #7a354d;
   font-family: chalkduster;
