@@ -27,6 +27,8 @@ On Tuesday, I want to be able to increase the score when a shot is successful an
 
 On Wednesday, I would like to implement a high score tracker that is updated after each round of the game.
 
+## Functionality
+
 I was able to implement collision detection by checking if the worm is at the same position on the canvas as a bird or a clock. If a bird is intersecting with the worm one point is added to the score, a quack sound effect is played, and that bird flies off screen. If a clock is intersecting with the worm, that clock instance is removed from the array and 3 seconds are added to the timer. 
 
 ```javascript
