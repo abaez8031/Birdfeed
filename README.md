@@ -1,17 +1,18 @@
-This is a game called Birdfeed. The objective of the game is to shoot worms into birds mouths as they fly overhead through the screen. The birdfeeder will be positioned at the bottom of the screen. The player would be able to aim at the birds by using their mouse and shoot the worm gun by clicking. There is a time limit of 60 seconds and a score that will increase with each successful shot. As well as just aiming at birds, there are clocks that randomly appear and increase your time limit by 3 seconds if you shoot them. There is also background music which can be paused, an accuracy statistic, and a high score leaderboard that utilizes local storage to save the top 5 high scores.
+This is a game called Birdfeed. The objective of the game is to shoot worms into birds mouths as they fly overhead through the screen. The birdfeeder is positioned at the bottom of the screen. The player will aim at the birds by using their mouse and shoot the worm gun by clicking. There is a time limit of 60 seconds and a score that will increase with each successful shot. As well as just aiming at birds, there are clocks that randomly appear and increase your time limit by 3 seconds if you shoot them. There is also background music which can be paused, an accuracy statistic, and a high score leaderboard that utilizes local storage to save the top 5 high scores.
 
 ![wireframe](./assets/Screenshot%202023-03-09%20at%202.00.26%20PM.png)
 
-In Birdfeed, users will be able to:
+In Birdfeed, users are able to:
 - Aim at birds flying above with their mouse
 - Shoot food at the birds flying above on a click
 - Gain points when they successfully shoot a worm at the worm
 - Increase their time limit by 3 seconds when they successfully shoot a clock.
+- Keep track of their score, accuracy and time remaining with the scoreboard.
 
-I intend to build this game using the following technologies:
+This game has been created using the following technologies:
 - The Canvas API to render the background, birds, birdfeeder, and clocks.
 - Webpack to bundle and transpile the source JavaScript code.
-- npm to manage project dependencies
+- npm to manage project dependencies.
 
 Between Friday and the weekend I am hoping to have my player rendered in the appropriate position and be able to animate the birds flying through the air.
 
