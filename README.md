@@ -1,5 +1,6 @@
 ## Birdfeed
 
+Play Birdfeed [here!](https://abaez8031.github.io/Birdfeed/)  
 This is a game called Birdfeed. The objective of the game is to shoot worms into birds mouths as they fly overhead through the screen. The birdfeeder is positioned at the bottom of the screen. The player will aim at the birds by using their mouse and shoot the worm gun by clicking. There is a time limit of 60 seconds and a score that will increase with each successful shot. As well as just aiming at birds, there are clocks that randomly appear and increase your time limit by 3 seconds if you shoot them. There is also background music which can be paused, an accuracy statistic, and a high score leaderboard that utilizes local storage to save the top 5 high scores.
 
 ## Wireframe
